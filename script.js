@@ -35,19 +35,14 @@ const info = document.querySelector('.info');
 let count = 0;
 
 window.addEventListener('DOMContentLoaded', function() {
-    const item = fighter[count];
-    
-    img.src = item.img;
-    name.textContent = item.name;
-    skills.textContent = item.skills
-    info.textContent = item.information
+    showPerson()
 })
 
 const prev = document.querySelector('.prev-btn');
 const next = document.querySelector('.next-btn');
 
-function showPerson(person) {
-    let item = fighter[person];
+function showPerson() {
+    let item = fighter[count];
     img.src = item.img;
     name.textContent = item.name;
     skills.textContent = item.skills;
@@ -56,19 +51,20 @@ function showPerson(person) {
 
 
 next.addEventListener('click', () => {
+
     count++;
     if(count > fighter.length -1) {
         count = 0;
     }
 
-    showPerson(count);
+    showPerson();
 });
 prev.addEventListener('click', () => {
     count--;
     if(count < 0) {
         count = fighter.length - 1;
     }
-    showPerson(count);
+    showPerson();
 });
 
 
